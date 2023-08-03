@@ -1,5 +1,4 @@
 import streamlit
-import snowflake.connector
 import pandas as pd
 import requests
 
@@ -28,6 +27,10 @@ streamlit.dataframe(fruityvice_normalized)
 
 fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
 streamlit.write('The user entered ', fruit_choice)
+
+streamlit.stop()
+
+import snowflake.connector
 
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
